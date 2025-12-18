@@ -1,0 +1,159 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String      @id @default(uuid())
+  email         String      @unique
+  password      String
+  firstName     String
+  lastName      String
+  avatar        String?
+  isPremium     Boolean     @default(false)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  
+  profile       Profile?
+  activities    Activity[]
+  workouts      Workout[]
+  devices       Device[]
+  goals         Goal[]
+  achievements  Achievement[]
+  
+  @@map("users")
+}
+
+model Profile {
+  id            String   @id @default(uuid())
+  userId        String   @unique
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  height        Float?
+  weight        Float?
+  age           Int?
+  gender        String?
+  bmi           Float?
+  bodyFat       Float?
+  muscleMass    Float?
+  
+  dailyStepGoal Int      @default(10000)
+  calorieGoal   Int      @default(2000)
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("profiles")
+}
+
+model Activity {
+  id            String   @id @default(uuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  date          DateTime @default(now())
+  steps         Int      @default(0)
+  calories      Int      @default(0)
+  distance      Float    @default(0)
+  activeMinutes Int      @default(0)
+  heartRate     Int?
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@unique([userId, date])  // 添加这一行！
+  @@index([userId, date])
+  @@map("activities")
+}
+
+model Workout {
+  id            String   @id @default(uuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title         String
+  description   String?
+  category      String
+  level         String
+  duration      Int
+  calories      Int
+  coverImage    String?
+  
+  isCompleted   Boolean  @default(false)
+  completedAt   DateTime?
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@index([userId, category])
+  @@map("workouts")
+}
+
+model Device {
+  id            String   @id @default(uuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  name          String
+  type          String
+  model         String
+  serialNumber  String   @unique
+  
+  isConnected   Boolean  @default(false)
+  battery       Int?
+  lastSyncAt    DateTime?
+  
+  notificationsEnabled Boolean @default(true)
+  autoSyncEnabled      Boolean @default(true)
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("devices")
+}
+
+model Goal {
+  id            String   @id @default(uuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title         String
+  type          String
+  targetValue   Float
+  currentValue  Float    @default(0)
+  unit          String
+  deadline      DateTime?
+  
+  isCompleted   Boolean  @default(false)
+  completedAt   DateTime?
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("goals")
+}
+
+model Achievement {
+  id            String   @id @default(uuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title         String
+  description   String
+  icon          String
+  category      String
+  
+  unlockedAt    DateTime @default(now())
+  
+  @@map("achievements")
+}

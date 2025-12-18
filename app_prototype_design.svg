@@ -1,0 +1,299 @@
+<svg width="2000" height="900" viewBox="0 0 2000 900" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- 定义通用样式 -->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap');
+            .bg { fill: #1A1A1A; }
+            .card { fill: #2A2A2A; rx: 12; }
+            .text-main { fill: #FFFFFF; font-family: 'Roboto', sans-serif; font-weight: 700; }
+            .text-sub { fill: #AAAAAA; font-family: 'Roboto', sans-serif; font-weight: 400; }
+            .accent-blue { fill: #0066FF; }
+            .accent-green { fill: #00FF7F; }
+            .accent-orange { fill: #FF6B35; }
+            .nav-bar { fill: #1F1F1F; stroke: #333; stroke-width: 1; }
+            .screen-frame { fill: none; stroke: #333; stroke-width: 2; rx: 40; }
+        </style>
+        
+        <!-- 定义底部导航栏组件 -->
+        <g id="bottom-nav">
+            <rect x="0" y="760" width="375" height="84" class="nav-bar" />
+            <!-- Home Icon -->
+            <circle cx="37.5" cy="790" r="3" fill="#888" />
+            <rect x="25.5" y="785" width="24" height="16" rx="2" stroke="#888" fill="none" stroke-width="2"/>
+            <text x="37.5" y="820" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">Home</text>
+            
+            <!-- Data Icon -->
+            <rect x="98" y="790" width="6" height="14" fill="#888" />
+            <rect x="106" y="785" width="6" height="19" fill="#888" />
+            <rect x="114" y="795" width="6" height="9" fill="#888" />
+            <text x="112.5" y="820" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">Data</text>
+            
+            <!-- Train Icon -->
+            <rect x="175.5" y="790" width="24" height="8" rx="2" fill="#888" />
+            <circle cx="172.5" cy="794" r="4" fill="#888" />
+            <circle cx="202.5" cy="794" r="4" fill="#888" />
+            <text x="187.5" y="820" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">Train</text>
+            
+            <!-- Device Icon -->
+            <rect x="250.5" y="785" width="24" height="20" rx="4" stroke="#888" fill="none" stroke-width="2" />
+            <text x="262.5" y="820" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">Device</text>
+            
+            <!-- Profile Icon -->
+            <circle cx="337.5" cy="790" r="6" fill="#888" />
+            <path d="M327.5 805 Q337.5 798 347.5 805" stroke="#888" fill="none" stroke-width="2" />
+            <text x="337.5" y="820" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">Profile</text>
+        </g>
+
+        <!-- 定义状态栏 -->
+        <g id="status-bar">
+            <text x="30" y="30" font-size="14" fill="white" font-family="sans-serif" font-weight="bold">9:41</text>
+            <rect x="320" y="18" width="24" height="12" rx="2" stroke="white" fill="none" />
+            <rect x="322" y="20" width="18" height="8" rx="1" fill="white" />
+        </g>
+    </defs>
+
+    <!-- 背景 -->
+    <rect width="2000" height="900" fill="#111" />
+
+    <!-- ================= SCREEN 1: HOME ================= -->
+    <g transform="translate(25, 25)">
+        <!-- Phone Body -->
+        <rect width="375" height="844" rx="40" class="bg" />
+        <use href="#status-bar" />
+        
+        <!-- Header -->
+        <text x="24" y="80" font-size="28" class="text-main">Good Morning,</text>
+        <text x="24" y="110" font-size="28" class="text-main" fill="#0066FF">Alex</text>
+        <circle cx="320" cy="90" r="20" fill="#333" /> <!-- Avatar placeholder -->
+
+        <!-- Main Activity Ring -->
+        <g transform="translate(187.5, 220)">
+            <circle r="80" fill="none" stroke="#333" stroke-width="15" />
+            <circle r="80" fill="none" stroke="#0066FF" stroke-width="15" stroke-dasharray="350 500" stroke-linecap="round" transform="rotate(-90)" />
+            <text x="0" y="5" text-anchor="middle" font-size="32" class="text-main">7,543</text>
+            <text x="0" y="25" text-anchor="middle" font-size="14" class="text-sub">Steps</text>
+        </g>
+
+        <!-- Stats Cards -->
+        <rect x="24" y="340" width="155" height="100" class="card" />
+        <text x="40" y="370" font-size="14" class="text-sub">Calories</text>
+        <text x="40" y="400" font-size="24" class="text-main">450</text>
+        <text x="40" y="420" font-size="12" fill="#00FF7F">kcal</text>
+
+        <rect x="196" y="340" width="155" height="100" class="card" />
+        <text x="212" y="370" font-size="14" class="text-sub">Distance</text>
+        <text x="212" y="400" font-size="24" class="text-main">5.2</text>
+        <text x="212" y="420" font-size="12" fill="#0066FF">km</text>
+
+        <!-- Today's Plan -->
+        <text x="24" y="480" font-size="18" class="text-main">Today's Plan</text>
+        <rect x="24" y="500" width="327" height="80" class="card" fill="#0066FF" fill-opacity="0.2" stroke="#0066FF" stroke-width="1" />
+        <text x="44" y="530" font-size="16" class="text-main">Upper Body Power</text>
+        <text x="44" y="550" font-size="12" class="text-sub">45 min • High Intensity</text>
+        <circle cx="320" cy="540" r="15" fill="#0066FF" />
+        <path d="M315 540 L320 545 L325 535" stroke="white" stroke-width="2" fill="none" />
+
+        <use href="#bottom-nav" />
+        <!-- Highlight Home Icon -->
+        <circle cx="37.5" cy="790" r="3" fill="#0066FF" transform="translate(0, 760)" /> 
+        <text x="37.5" y="820" text-anchor="middle" font-size="10" fill="#0066FF" font-family="sans-serif" transform="translate(0, 760)">Home</text>
+        <rect width="375" height="844" class="screen-frame" />
+    </g>
+
+    <!-- ================= SCREEN 2: DATA ================= -->
+    <g transform="translate(425, 25)">
+        <rect width="375" height="844" rx="40" class="bg" />
+        <use href="#status-bar" />
+        
+        <text x="24" y="80" font-size="24" class="text-main">Analytics</text>
+
+        <!-- Chart 1: Bar Chart -->
+        <text x="24" y="130" font-size="16" class="text-main">Weekly Activity</text>
+        <rect x="24" y="150" width="327" height="200" class="card" />
+        <!-- Bars -->
+        <rect x="44" y="250" width="20" height="80" fill="#0066FF" rx="4" />
+        <rect x="84" y="220" width="20" height="110" fill="#0066FF" rx="4" />
+        <rect x="124" y="270" width="20" height="60" fill="#0066FF" rx="4" />
+        <rect x="164" y="200" width="20" height="130" fill="#0066FF" rx="4" />
+        <rect x="204" y="240" width="20" height="90" fill="#0066FF" rx="4" />
+        <rect x="244" y="180" width="20" height="150" fill="#00FF7F" rx="4" /> <!-- Highlight -->
+        <rect x="284" y="230" width="20" height="100" fill="#0066FF" rx="4" />
+        
+        <!-- Chart 2: Line Chart -->
+        <text x="24" y="390" font-size="16" class="text-main">Weight Trend</text>
+        <rect x="24" y="410" width="327" height="180" class="card" />
+        <polyline points="44,520 90,510 140,515 190,490 240,480 290,470" fill="none" stroke="#FF6B35" stroke-width="3" />
+        <circle cx="290" cy="470" r="4" fill="#FF6B35" />
+        <text x="290" y="460" font-size="12" fill="#FF6B35" text-anchor="middle">72.5kg</text>
+
+        <!-- Stats Grid -->
+        <rect x="24" y="620" width="100" height="80" class="card" />
+        <text x="74" y="650" text-anchor="middle" font-size="12" class="text-sub">BMI</text>
+        <text x="74" y="675" text-anchor="middle" font-size="18" class="text-main">22.4</text>
+
+        <rect x="137" y="620" width="100" height="80" class="card" />
+        <text x="187" y="650" text-anchor="middle" font-size="12" class="text-sub">Fat %</text>
+        <text x="187" y="675" text-anchor="middle" font-size="18" class="text-main">12.3</text>
+
+        <rect x="250" y="620" width="100" height="80" class="card" />
+        <text x="300" y="650" text-anchor="middle" font-size="12" class="text-sub">Muscle</text>
+        <text x="300" y="675" text-anchor="middle" font-size="18" class="text-main">48kg</text>
+
+        <use href="#bottom-nav" />
+        <!-- Highlight Data Icon -->
+        <text x="112.5" y="820" text-anchor="middle" font-size="10" fill="#0066FF" font-family="sans-serif" transform="translate(0, 760)">Data</text>
+        <rect width="375" height="844" class="screen-frame" />
+    </g>
+
+    <!-- ================= SCREEN 3: TRAIN ================= -->
+    <g transform="translate(825, 25)">
+        <rect width="375" height="844" rx="40" class="bg" />
+        <use href="#status-bar" />
+        
+        <text x="24" y="80" font-size="24" class="text-main">Training</text>
+
+        <!-- Search Bar -->
+        <rect x="24" y="100" width="327" height="40" rx="20" fill="#333" />
+        <text x="50" y="125" font-size="14" fill="#666">Search workouts...</text>
+
+        <!-- Categories -->
+        <g transform="translate(24, 160)">
+            <rect width="80" height="30" rx="15" fill="#0066FF" />
+            <text x="40" y="20" text-anchor="middle" font-size="12" fill="white">All</text>
+            
+            <rect x="90" y="0" width="80" height="30" rx="15" fill="#333" />
+            <text x="130" y="20" text-anchor="middle" font-size="12" fill="#AAA">Cardio</text>
+            
+            <rect x="180" y="0" width="80" height="30" rx="15" fill="#333" />
+            <text x="220" y="20" text-anchor="middle" font-size="12" fill="#AAA">Strength</text>
+        </g>
+
+        <!-- Featured Workout -->
+        <text x="24" y="220" font-size="18" class="text-main">Featured</text>
+        <rect x="24" y="240" width="327" height="180" rx="12" fill="#333" />
+        <!-- Image placeholder -->
+        <rect x="24" y="240" width="327" height="120" rx="12" fill="#444" /> 
+        <path d="M24 300 L351 300" stroke="#555" stroke-width="1" />
+        <text x="40" y="390" font-size="16" class="text-main">Full Body HIIT</text>
+        <text x="40" y="410" font-size="12" class="text-sub">30 min • Intermediate</text>
+        <rect x="280" y="380" width="60" height="30" rx="15" fill="#0066FF" />
+        <text x="310" y="400" text-anchor="middle" font-size="12" fill="white">Start</text>
+
+        <!-- List -->
+        <text x="24" y="460" font-size="18" class="text-main">Recent</text>
+        
+        <rect x="24" y="480" width="327" height="70" class="card" />
+        <rect x="34" y="490" width="50" height="50" rx="8" fill="#444" />
+        <text x="95" y="510" font-size="14" class="text-main">Morning Yoga</text>
+        <text x="95" y="530" font-size="12" class="text-sub">15 min • Flexibility</text>
+
+        <rect x="24" y="560" width="327" height="70" class="card" />
+        <rect x="34" y="570" width="50" height="50" rx="8" fill="#444" />
+        <text x="95" y="590" font-size="14" class="text-main">Core Crusher</text>
+        <text x="95" y="610" font-size="12" class="text-sub">20 min • Strength</text>
+
+        <use href="#bottom-nav" />
+        <!-- Highlight Train Icon -->
+        <text x="187.5" y="820" text-anchor="middle" font-size="10" fill="#0066FF" font-family="sans-serif" transform="translate(0, 760)">Train</text>
+        <rect width="375" height="844" class="screen-frame" />
+    </g>
+
+    <!-- ================= SCREEN 4: DEVICE ================= -->
+    <g transform="translate(1225, 25)">
+        <rect width="375" height="844" rx="40" class="bg" />
+        <use href="#status-bar" />
+        
+        <text x="24" y="80" font-size="24" class="text-main">My Devices</text>
+
+        <!-- Main Device Image -->
+        <circle cx="187.5" cy="200" r="80" fill="#222" stroke="#444" stroke-width="2" />
+        <rect x="147.5" y="160" width="80" height="80" rx="10" fill="#111" stroke="#0066FF" stroke-width="2" />
+        <text x="187.5" y="205" text-anchor="middle" font-size="12" fill="white">10:09</text>
+        
+        <text x="187.5" y="310" text-anchor="middle" font-size="20" class="text-main">FitWatch Pro</text>
+        <text x="187.5" y="330" text-anchor="middle" font-size="14" fill="#00FF7F">● Connected</text>
+
+        <!-- Battery Status -->
+        <rect x="24" y="360" width="327" height="60" class="card" />
+        <text x="44" y="395" font-size="16" class="text-main">Battery</text>
+        <text x="310" y="395" font-size="16" class="text-main" text-anchor="end">85%</text>
+        <rect x="250" y="385" width="40" height="14" rx="2" stroke="#00FF7F" fill="none" />
+        <rect x="252" y="387" width="30" height="10" rx="1" fill="#00FF7F" />
+
+        <!-- Settings List -->
+        <text x="24" y="450" font-size="16" class="text-sub">SETTINGS</text>
+        
+        <rect x="24" y="470" width="327" height="50" class="card" />
+        <text x="44" y="500" font-size="14" class="text-main">Notifications</text>
+        <circle cx="330" cy="495" r="10" fill="#0066FF" /> <!-- Toggle On -->
+        <circle cx="335" cy="495" r="4" fill="white" />
+
+        <rect x="24" y="530" width="327" height="50" class="card" />
+        <text x="44" y="560" font-size="14" class="text-main">Auto-Sync</text>
+        <circle cx="330" cy="555" r="10" fill="#0066FF" />
+
+        <rect x="24" y="590" width="327" height="50" class="card" />
+        <text x="44" y="620" font-size="14" class="text-main">Watch Face</text>
+        <text x="330" y="620" font-size="14" fill="#AAA" text-anchor="end">Digital ></text>
+
+        <rect x="24" y="680" width="327" height="50" rx="12" fill="none" stroke="#FF6B35" />
+        <text x="187.5" y="710" text-anchor="middle" font-size="14" fill="#FF6B35">Unpair Device</text>
+
+        <use href="#bottom-nav" />
+        <!-- Highlight Device Icon -->
+        <text x="262.5" y="820" text-anchor="middle" font-size="10" fill="#0066FF" font-family="sans-serif" transform="translate(0, 760)">Device</text>
+        <rect width="375" height="844" class="screen-frame" />
+    </g>
+
+    <!-- ================= SCREEN 5: PROFILE ================= -->
+    <g transform="translate(1625, 25)">
+        <rect width="375" height="844" rx="40" class="bg" />
+        <use href="#status-bar" />
+        
+        <!-- Header Profile -->
+        <circle cx="187.5" cy="100" r="40" fill="#333" />
+        <text x="187.5" y="160" text-anchor="middle" font-size="20" class="text-main">Alex Johnson</text>
+        <text x="187.5" y="180" text-anchor="middle" font-size="14" class="text-sub">Premium Member</text>
+
+        <!-- Stats Row -->
+        <g transform="translate(0, 200)">
+            <text x="93" y="20" text-anchor="middle" font-size="18" class="text-main">12</text>
+            <text x="93" y="40" text-anchor="middle" font-size="12" class="text-sub">Workouts</text>
+            
+            <text x="187" y="20" text-anchor="middle" font-size="18" class="text-main">4.5h</text>
+            <text x="187" y="40" text-anchor="middle" font-size="12" class="text-sub">Hours</text>
+            
+            <text x="281" y="20" text-anchor="middle" font-size="18" class="text-main">2.1k</text>
+            <text x="281" y="40" text-anchor="middle" font-size="12" class="text-sub">Calories</text>
+        </g>
+
+        <!-- Menu List -->
+        <g transform="translate(0, 280)">
+            <rect x="24" y="0" width="327" height="60" class="card" />
+            <rect x="40" y="15" width="30" height="30" rx="6" fill="#0066FF" fill-opacity="0.2" />
+            <text x="85" y="35" font-size="16" class="text-main">Personal Data</text>
+            <text x="330" y="35" font-size="16" fill="#AAA" text-anchor="end">></text>
+
+            <rect x="24" y="70" width="327" height="60" class="card" />
+            <rect x="40" y="85" width="30" height="30" rx="6" fill="#00FF7F" fill-opacity="0.2" />
+            <text x="85" y="105" font-size="16" class="text-main">Achievements</text>
+            <text x="330" y="105" font-size="16" fill="#AAA" text-anchor="end">></text>
+
+            <rect x="24" y="140" width="327" height="60" class="card" />
+            <rect x="40" y="155" width="30" height="30" rx="6" fill="#FF6B35" fill-opacity="0.2" />
+            <text x="85" y="175" font-size="16" class="text-main">Goals</text>
+            <text x="330" y="175" font-size="16" fill="#AAA" text-anchor="end">></text>
+
+            <rect x="24" y="210" width="327" height="60" class="card" />
+            <rect x="40" y="225" width="30" height="30" rx="6" fill="#AAA" fill-opacity="0.2" />
+            <text x="85" y="245" font-size="16" class="text-main">Settings</text>
+            <text x="330" y="245" font-size="16" fill="#AAA" text-anchor="end">></text>
+        </g>
+
+        <use href="#bottom-nav" />
+        <!-- Highlight Profile Icon -->
+        <text x="337.5" y="820" text-anchor="middle" font-size="10" fill="#0066FF" font-family="sans-serif" transform="translate(0, 760)">Profile</text>
+        <rect width="375" height="844" class="screen-frame" />
+    </g>
+
+</svg>
