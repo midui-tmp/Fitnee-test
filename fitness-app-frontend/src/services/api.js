@@ -1,6 +1,8 @@
 import axios from 'axios';
 
+/*
 const API_BASE_URL = 'http://localhost:3000/api';
+
 
 class ApiService {
   constructor() {
@@ -10,6 +12,18 @@ class ApiService {
         'Content-Type': 'application/json',
       },
     });
+*/
+
+const API_BASE_URL = import.meta.env.PROD 
+  ? 'https://fitnee-backend.onrender.com/api'
+  : 'http://localhost:3000/api';
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
     // 请求拦截器：自动添加 token
     this.api.interceptors.request.use(
